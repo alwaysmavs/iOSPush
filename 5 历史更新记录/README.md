@@ -1,0 +1,57 @@
+## 历史记录
+
+- 1.2.2 ([Release Notes](https://github.com/pili-engineering/PLStreamingKit/blob/master/ReleaseNotes/release-notes-1.2.2.md) && [API Diffs](https://github.com/pili-engineering/PLStreamingKit/blob/master/APIDiffs/api-diffs-1.2.2S.md))
+- 功能
+  - 支持初始化的时候传入 stream 为 nil
+  - 支持调节编码采样率
+  - 支持快速重连操作，方便 4G 推流时切换 WIFI 场景快速切换网络
+  - 完善了音频出错时的 log
+- 1.2.1 ([Release Notes](https://github.com/pili-engineering/PLStreamingKit/blob/master/ReleaseNotes/release-notes-1.2.1.md) && [API Diffs](https://github.com/pili-engineering/PLStreamingKit/blob/master/APIDiffs/api-diffs-1.2.1.md))
+  - 功能
+    - 新增 iOS9 下的纯 IPV6 环境支持
+  - 缺陷
+    - 修复 dynamic 鉴权方式下重连失效的问题
+- 1.2.0 ([Release Notes](https://github.com/pili-engineering/PLStreamingKit/blob/master/ReleaseNotes/release-notes-1.2.0.md) && [API Diffs](https://github.com/pili-engineering/PLStreamingKit/blob/master/APIDiffs/api-diffs-1.2.0.md))
+    - 解决 iPhone 6s 上出现的电流音问题
+    - 支持后台推流
+    - 支持 64kbps 音频码率
+    - 部分接口重命名
+- 1.1.6 ([Release Notes](https://github.com/pili-engineering/PLStreamingKit/blob/master/ReleaseNotes/release-notes-1.1.6.md) && [API Diffs](https://github.com/pili-engineering/PLStreamingKit/blob/master/APIDiffs/api-diffs-1.1.6.md))
+    - 拆分 pili-librtmp 为公共依赖，避免模拟器环境下与 PLPlayerKit冲突的问题
+    - 解决网络不可达条件下 `- (void)startWithCompleted:(void (^)(BOOL success))handler;` 方法无回调的问题
+    - 新增质量上报支持
+    - 增加推流中实时变换采集音频参数的接口
+- 1.1.5 ([Release Notes](https://github.com/pili-engineering/PLStreamingKit/blob/master/ReleaseNotes/release-notes-1.1.5.md) && [API Diffs](https://github.com/pili-engineering/PLStreamingKit/blob/master/APIDiffs/api-diffs-1.1.5.md))
+    - 修复 `v1.1.1` 版本引入的断网时引起的 UI 卡死问题，强烈建议 >= `v1.1.1` 的均做更新
+- 1.1.4 ([Release Notes](https://github.com/pili-engineering/PLStreamingKit/blob/master/ReleaseNotes/release-notes-1.1.4.md) && [API Diffs](https://github.com/pili-engineering/PLStreamingKit/blob/master/APIDiffs/api-diffs-1.1.4.md))
+    - 新增网络连接接收超时接口和发送超时接口
+- 1.1.3 ([Release Notes](https://github.com/pili-engineering/PLStreamingKit/blob/master/ReleaseNotes/release-notes-1.1.3.md) && [API Diffs](https://github.com/pili-engineering/PLStreamingKit/blob/master/APIDiffs/api-diffs-1.1.3.md))
+    - 优化网络发包，合并多个小包一起发送，提升带宽利用率
+- 1.1.2 ([Release Notes](https://github.com/pili-engineering/PLStreamingKit/blob/master/ReleaseNotes/release-notes-1.1.2.md) && [API Diffs](https://github.com/pili-engineering/PLStreamingKit/blob/master/APIDiffs/api-diffs-1.1.2.md))
+    - 修复 dynamic 推流 nounce 取值过小，导致安卓端推流后，同一个流在 iOS 端推流会失败的问题
+- 1.1.1 ([Release Notes](https://github.com/pili-engineering/PLStreamingKit/blob/master/ReleaseNotes/release-notes-1.1.1.md) && [API Diffs](https://github.com/pili-engineering/PLStreamingKit/blob/master/APIDiffs/api-diffs-1.1.1.md))
+    - 修复因 video configuration rtmp 发送时没读渠道发送 onMetaData 只有音频信息的问题
+    - 添加版本信息读取方法
+    - 添加实施推流状态的返回，便于开发者从推流端获取推流信息
+- 1.1.0 ([Release Notes](https://github.com/pili-engineering/PLStreamingKit/blob/master/ReleaseNotes/release-notes-1.1.0.md) && [API Diffs](https://github.com/pili-engineering/PLStreamingKit/blob/master/APIDiffs/api-diffs-1.1.0.md))
+    - 重构 `PLVideoStreamingConfiguration`, 提供给开发者更大的视频编码定制自由度
+    - `PLVideoStreamingConfiguration` 提供了 `validate` 方法, 确保 fast fail 减少开发者 app 携带不正确编码参数上线的可能性
+    - 优化推送音视频数据, 添加了编码处理完后的回调
+- 1.0.3 ([Release Notes](https://github.com/pili-engineering/PLStreamingKit/blob/master/ReleaseNotes/release-notes-1.0.3.md) && [API Diffs](https://github.com/pili-engineering/PLStreamingKit/blob/master/APIDiffs/api-diffs-1.0.3.md))
+    - 优化 dns 解析部分，补全 happydns 解析失败后的本地解析
+- 1.0.2 ([Release Notes](https://github.com/pili-engineering/PLStreamingKit/blob/master/ReleaseNotes/release-notes-1.0.2.md) && [API Diffs](https://github.com/pili-engineering/PLStreamingKit/blob/master/APIDiffs/api-diffs-1.0.2.md))
+    - 修复 dns 解析失败时无 error 回调的问题
+    - 优化音频数据默认为单声道，与 iOS 设备单声道采集贴近
+    - 针对没有音频 configuration 的推流，优化发送的 onMetaData 信息，只携带视频信息，极大缩短 ffplay, ijkplayer 的等待时间
+- 1.0.1 ([Release Notes](https://github.com/pili-engineering/PLStreamingKit/blob/master/ReleaseNotes/release-notes-1.0.1.md) && [API Diffs](https://github.com/pili-engineering/PLStreamingKit/blob/master/APIDiffs/api-diffs-1.0.1.md))
+    - 添加 HappyDNS, 优化 DNS 解析
+    - 优化 TCP 发送层, 减少发包失败触发的错误
+    - 修复推流时内存递增的问题
+    - 修复切换 Quality 时，播放卡住的问题
+- 1.0.0 ([Release Notes](https://github.com/pili-engineering/PLStreamingKit/blob/master/ReleaseNotes/release-notes-1.0.0.md) && [API Diffs](https://github.com/pili-engineering/PLStreamingKit/blob/master/APIDiffs/api-diffs-1.0.0.md))
+    - PLStreamingKit CocoaPods 版本发布
+    - H.264 硬件编码
+    - AAC 硬件编码
+    - RTMP 推流支持
+    - 弱网络环境音频优先的丢帧策略
+    - 接口简明，便于和 Pili 直接对接使用，减少理解和开发成本
