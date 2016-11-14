@@ -1,4 +1,4 @@
-## PLDroidMediaStreaming 简介
+## PLMediaStreaming 简介
 
 `PLMediaStreamingKit` 提供两个层次的 API
 
